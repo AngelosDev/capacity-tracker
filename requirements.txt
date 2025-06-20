@@ -1,0 +1,7 @@
+jira
+pandas
+requests
+pyyaml
+openai
+anthropic
+python-dotenv
