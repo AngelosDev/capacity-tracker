@@ -16,39 +16,12 @@ This Python pipeline extracts data from JIRA using the JIRA API, processes the d
 
 ### Configuration
 1. **Environment Variables**:
-   - Create a `.env` file in the root directory.
-   - Add your JIRA credentials, base URL, and tokens:
-     ```
-     JIRA_CLIENT_ID=your_client_id
-     JIRA_CLIENT_SECRET=your_client_secret
-     JIRA_BASE_URL=https://your-jira-instance.atlassian.net
-     JIRA_ACCESS_TOKEN=your_access_token
-     JIRA_REFRESH_TOKEN=your_refresh_token
-     LLM_API_KEY=your_llm_api_key
-     ```
+   - Copy `.env.example` to `.env` in the root directory.
+   - Fill in the required values such as `JIRA_CLIENT_ID`, `JIRA_CLIENT_SECRET`, `LLM_API_KEY`, etc.
 
-2. **Configuration File**:
-   - Use the `config_example.yaml` file as a template.
-   - Specify the `filter_id` for the JIRA filter you want to use.
-   - Example:
-     ```yaml
-     jira:
-       api_url: "${JIRA_BASE_URL}/rest/api/2/search"  # Use environment variable for base URL
-       client_id: "${JIRA_CLIENT_ID}"  # Use environment variable for security
-       client_secret: "${JIRA_CLIENT_SECRET}"  # Use environment variable for security
-     filters:
-       filter_id: "12345"  # Specify the filter ID for extraction
-     classification:
-       llm_provider: "openai"  # Options: "openai", "claude"
-       llm_api_key: "${LLM_API_KEY}"  # Use environment variable for security
-       categories:
-         - Name: "Internal Productivity"
-           Description: "Tooling, infrastructure improvements and anything that helps develop more efficient operations"
-         - Name: "Incident handling"
-           Description: "The day to day unplanned issues raised, handled, and the tasks required to restore operations."
-     output:
-       path: "./output"
-     ```
+2. **Pipeline Configuration**:
+   - Copy `example_config.yaml` to `config.yaml` in the root directory.
+   - Customize the investment categories and other settings as needed.
 
 ### Token Refresh Logic
 The script includes logic to refresh the access token when it expires. Ensure the `JIRA_REFRESH_TOKEN` is saved securely in the `.env` file after running the 3LO flow once via browser.

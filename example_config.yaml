@@ -1,0 +1,37 @@
+jira:
+  api_url: "https://api.atlassian.com/ex/jira/${JIRA_CLOUD_ID}/rest/api/3/search"
+  client_id: "${JIRA_CLIENT_ID}"  # Use environment variable for security
+  client_secret: "${JIRA_CLIENT_SECRET}"  # Use environment variable for security
+filters:
+  filter_id: "18195"  # Specify the filter ID for extraction
+classification:
+  llm_provider: "openai"  # Options: "openai", "claude"
+  llm_api_key: "${LLM_API_KEY}"  # Use environment variable for security
+  model: "gpt-3.5-turbo"  # Default model for OpenAI
+  categories:
+    - Name: "Product Development"
+      Description: "Work focused on building new features, improving existing ones, and enhancing the overall product experience."
+    - Name: "Technical Debt"
+      Description: "Efforts to improve code quality, refactor legacy systems, and address technical issues to ensure long-term maintainability."
+    - Name: "Operational Excellence"
+      Description: "Tasks aimed at improving processes, automating workflows, and ensuring smooth operations across teams."
+    - Name: "Customer Support"
+      Description: "Activities related to assisting customers, resolving issues, and providing technical support to ensure satisfaction."
+output:
+  path: "./output"
+  raw_data_path: "./output/raw_data"
+  columns:
+    - Project
+    - Key
+    - Updated
+    - Updated_YearMonth
+    - Created
+    - Summary
+    - Description
+    - Issue Type
+    - Status
+    - Resolution
+    - Resolved_YearMonth
+    - Assignee
+    - Category
+
