@@ -48,3 +48,6 @@ dist/
 
 # __pypackages__ support (PEP 582)
 __pypackages__/
+
+# Dev docs
+PROGRESS.md

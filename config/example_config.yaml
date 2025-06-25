@@ -1,13 +1,13 @@
 jira:
   api_url: "https://api.atlassian.com/ex/jira/${JIRA_CLOUD_ID}/rest/api/3/search"
-  client_id: "${JIRA_CLIENT_ID}"  # Use environment variable for security
-  client_secret: "${JIRA_CLIENT_SECRET}"  # Use environment variable for security
+  client_id: "${JIRA_CLIENT_ID}"
+  client_secret: "${JIRA_CLIENT_SECRET}"
 filters:
-  filter_id: "18195"  # Specify the filter ID for extraction
+  filter_id: "18195"
 classification:
-  llm_provider: "openai"  # Options: "openai", "claude"
-  llm_api_key: "${LLM_API_KEY}"  # Use environment variable for security
-  model: "gpt-3.5-turbo"  # Default model for OpenAI
+  llm_provider: "openai"
+  llm_api_key: "${LLM_API_KEY}"
+  model: "gpt-3.5-turbo"
   categories:
     - Name: "Product Development"
       Description: "Work focused on building new features, improving existing ones, and enhancing the overall product experience."
@@ -34,4 +34,3 @@ output:
     - Resolved_YearMonth
     - Assignee
     - Category
-
